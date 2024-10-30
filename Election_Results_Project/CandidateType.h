@@ -20,8 +20,6 @@ public:
     
     void printCandidateInfo();
     
-    void printName() override;
-    
     void printCandidateTotalVotes();
     
     void printCandidateCampusVotes(int campusNum);
@@ -30,7 +28,7 @@ public:
     
 public:
     int totalNumOfVotes;
-    int campuses[NUM_OF_CAMPUSES];
+    int campusVotes[NUM_OF_CAMPUSES];
 };
 
 #endif
