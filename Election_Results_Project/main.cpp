@@ -11,13 +11,17 @@
 
 #include <iostream>
 #include "PersonType.h"
+#include "CandidateType.h"
 using namespace std;
 
-int main() {
+int main()
+{
     
-    PersonType person1("E", "e", 123456789);
+    CandidateType candidate1;
     
-    person1.printSSN();
+    candidate1.setPersonInfo("John", "Doe", 123456789);
+    
+    candidate1.printSSN();
     
     return 0;
 }

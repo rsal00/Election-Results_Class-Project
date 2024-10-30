@@ -12,10 +12,10 @@ public:
     PersonType();
     
     // Overloaded Constructor
-    PersonType(const std::string &, const std::string &, int);
+    PersonType(const std::string &newfName, const std::string &newlName, int newSSN);
     
     // Setter / Mutator
-    void setPersonInfo(const std::string &, const std::string &, int);
+    void setPersonInfo(const std::string &newfName, const std::string &newlName, int newSSN);
     
     // Getters / Accessors
     std::string getFirstName() const;
@@ -23,12 +23,12 @@ public:
     int getSSN() const;
     
     // Print functions
-    void printName();
+    virtual void printName();
     virtual void printPersonalInfo();
     void printSSN();
     
     // Destructor
-    ~PersonType();
+    virtual ~PersonType();
     
 private:
     std::string fName, lName;
@@ -36,4 +36,3 @@ private:
 };
 
 #endif
-

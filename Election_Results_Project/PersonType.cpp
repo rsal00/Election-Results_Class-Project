@@ -3,11 +3,12 @@
 #include "PersonType.h"
 
 // Default Constructor, only SSN is explicitly initialized as string member variables are set empty by default
-PersonType::PersonType() { SSN = 0; }
+PersonType::PersonType()
+    : SSN(0) {}
 
 // Overloaded Constructor sets arguments to member variables
 PersonType::PersonType(const std::string &newfName, const std::string &newlName, int newSSN)
-    { fName = newfName; lName = newlName; SSN = newSSN; }
+    : fName(newfName), lName(newlName), SSN(newSSN) {}
 
 // Member function that sets a person info(member variables of the PersonType class)
 void PersonType::setPersonInfo(const std::string &newfName, const std::string &newlName, int newSSN)
@@ -33,24 +34,10 @@ void PersonType::printPersonalInfo()
 {
     std::string strSSN = std::to_string(SSN);
     
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << strSSN[i];
-    }
+    strSSN.insert(3, "-");
+    strSSN.insert(6, "-");
     
-    std::cout << "-";
-    
-    for (int i = 3; i < 5; i++)
-    {
-        std::cout << strSSN[i];
-    }
-    
-    std::cout << "-";
-    
-    for (int i = 5; i < 10; i++)
-    {
-        std::cout << strSSN[i];
-    }
+    std::cout << strSSN;
     
     std::cout << " " << lName << ", " << fName << std::endl;
 }
@@ -60,24 +47,10 @@ void PersonType::printSSN()
 {
     std::string strSSN = std::to_string(SSN);
     
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << strSSN[i];
-    }
+    strSSN.insert(3, "-");
+    strSSN.insert(6, "-");
     
-    std::cout << "-";
-    
-    for (int i = 3; i < 5; i++)
-    {
-        std::cout << strSSN[i];
-    }
-    
-    std::cout << "-";
-    
-    for (int i = 5; i < 9; i++)
-    {
-        std::cout << strSSN[i];
-    }
+    std::cout << strSSN;
     
     std::cout << std::endl;
 }
