@@ -1,0 +1,4 @@
+#include "CandidateType.h"
+
+
+
