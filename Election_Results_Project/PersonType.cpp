@@ -34,10 +34,7 @@ void PersonType::printPersonalInfo()
 {
     std::string strSSN = std::to_string(SSN);
     
-    strSSN.insert(3, "-");
-    strSSN.insert(6, "-");
-    
-    std::cout << strSSN;
+    printSSN();
     
     std::cout << " " << lName << ", " << fName << std::endl;
 }
@@ -51,8 +48,6 @@ void PersonType::printSSN()
     strSSN.insert(6, "-");
     
     std::cout << strSSN;
-    
-    std::cout << std::endl;
 }
 
 // Destructor

@@ -21,7 +21,7 @@ int main()
     
     candidate1.setPersonInfo("John", "Doe", 123456789);
     
-    candidate1.printSSN();
+    candidate1.printPersonalInfo();
     
     return 0;
 }
