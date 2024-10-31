@@ -2,9 +2,10 @@
 #include <iostream>
 
 // Default Constructor sets member variables to 0
-CandidateType::CandidateType() : totalNumOfVotes(0), campusVotes{0} {};
+CandidateType::CandidateType()
+    : totalNumOfVotes(0), campusVotes{0} {};
 
-/*
+/**
  Member function that takes a campus number parameter
  and the number of votes by that campus.
  

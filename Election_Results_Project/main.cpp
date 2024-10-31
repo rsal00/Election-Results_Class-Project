@@ -29,7 +29,9 @@ int main()
     
     candidate1.updateVotesByCampuses(2, 6);
     
-    cout << candidate1.getVotesByCampus(2) << endl;
+    cout << candidate1.getTotalVotes() << endl;
+    candidate1.printCandidateCampusVotes(1);
+    candidate1.printCandidateCampusVotes(2);
     
     return 0;
 }
