@@ -27,13 +27,11 @@ int CandidateType::getVotesByCampus(int campusNum) const { return campusVotes[ca
 // Member function that prints candidates personal information
 void CandidateType::printCandidateInfo()
 {
-    std::string strSSN = std::to_string(getSSN());
-    
     printSSN();
     
     std::cout << " - ";
     
-    std::cout << getLastName() << ", " << getLastName() << std::endl;
+    printName();
 }
 
 // Member function that prints a candidates full name and the total votes among all campuses

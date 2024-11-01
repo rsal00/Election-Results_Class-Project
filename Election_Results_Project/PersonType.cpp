@@ -32,11 +32,11 @@ void PersonType::printName()
 // Member function that prints SSN in a formatted way and the person's full name
 void PersonType::printPersonalInfo()
 {
-    std::string strSSN = std::to_string(SSN);
-    
     printSSN();
     
-    std::cout << " " << lName << ", " << fName << std::endl;
+    std::cout << " ";
+    
+    printName();
 }
 
 // Member function that prints the SSN of a person in a formatted way ( ###-##-#### )
