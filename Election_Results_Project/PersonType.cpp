@@ -55,4 +55,3 @@ PersonType::~PersonType()
 {
     // empty
 }
-

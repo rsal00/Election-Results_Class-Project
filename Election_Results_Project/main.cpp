@@ -31,7 +31,7 @@ int main()
     
     cout << candidate1.getTotalVotes() << endl;
     candidate1.printCandidateCampusVotes(1);
-    candidate1.printCandidateCampusVotes(2);
+    candidate1.printCandidateInfo();
     
     return 0;
 }
