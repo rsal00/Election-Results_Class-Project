@@ -23,12 +23,12 @@ public:
     int getSSN() const;
     
     // Print functions
-    virtual void printName();
-    virtual void printPersonalInfo();
+    void printName();
+    void printPersonalInfo();
     void printSSN();
     
     // Destructor
-    virtual ~PersonType();
+    ~PersonType();
     
 private:
     std::string fName, lName;

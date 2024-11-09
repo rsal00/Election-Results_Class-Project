@@ -12,25 +12,14 @@
 #include <iostream>
 #include "PersonType.h"
 #include "CandidateType.h"
+#include "CandidateList.h"
 using namespace std;
 
 int main()
 {
     CandidateType candidate1;
-    CandidateType candidate2;
     
     candidate1.setPersonInfo("John", "Doe", 123456789);
-    
-    candidate2.setPersonInfo("Ed", "Williams", 368278654);
-    
-    candidate1.updateVotesByCampuses(1, 5);
-    
-    candidate2.updateVotesByCampuses(4, 40);
-    
-    candidate1.updateVotesByCampuses(2, 6);
-    
-    candidate1.printPersonalInfo();
-    candidate2.printCandidateInfo();
     
     return 0;
 }

@@ -10,20 +10,22 @@ class CandidateType : public PersonType
 {
 public:
     
+    // Default Constructor
     CandidateType();
     
+    // Update function
     void updateVotesByCampuses(int campusNum, int numOfVotes);
     
+    // Getter functions
     int getTotalVotes() const;
-    
     int getVotesByCampus(int campusNum) const;
     
+    // Print functions
     void printCandidateInfo();
-    
     void printCandidateTotalVotes();
-    
     void printCandidateCampusVotes(int campusNum);
     
+    // Destructor
     ~CandidateType();
     
 public:
