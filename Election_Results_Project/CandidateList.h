@@ -17,7 +17,11 @@ public:
     
     CandidateList();
     
-    void addCandidate(const CandidateType &candidate);
+    CandidateList(const CandidateList &list);
+    
+    CandidateList& operator=(const CandidateList& other);
+    
+    void addCandidate(const CandidateType& rhs);
     
     int getWinner();
     
@@ -34,8 +38,8 @@ public:
     ~CandidateList();
     
 private:
-    Node *first;
-    Node *last;
+    Node* first;
+    Node* last;
     int count;
 };
 
