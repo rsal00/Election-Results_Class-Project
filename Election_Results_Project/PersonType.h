@@ -1,3 +1,14 @@
+/*
+    KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
+    CMPR 121 - Fall 2024
+    October 15, 2024
+ 
+    Final Project
+ 
+    Collaboration:
+    Daniel Ruiz, Kun Fang, Sean Zhou
+*/
+
 #pragma once
 #ifndef PERSONTYPE_H
 #define PERSONTYPE_H

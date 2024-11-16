@@ -1,9 +1,13 @@
-//
-//  CandidateList.h
-//  Election_Results_Project
-//
-//  Created by Ruben Salazar on 11/5/24.
-//
+/*
+    KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
+    CMPR 121 - Fall 2024
+    October 15, 2024
+ 
+    Final Project
+ 
+    Collaboration:
+    Daniel Ruiz, Kun Fang, Sean Zhou
+*/
 
 #pragma once
 #ifndef CANDIDATELIST_H
@@ -21,7 +25,7 @@ public:
     
     CandidateList& operator=(const CandidateList& other);
     
-    void addCandidate(const CandidateType& rhs);
+    void addCandidate(const CandidateType& candidate);
     
     int getWinner();
     
@@ -31,7 +35,11 @@ public:
     
     void printAllCandidates();
     
+    void printCandidateCampusVotes(int SSN, int division);
+    
     void printCandidateTotalVotes(int SSN);
+    
+    void printFinalResults(int SIZE);
     
     void destroyList();
     

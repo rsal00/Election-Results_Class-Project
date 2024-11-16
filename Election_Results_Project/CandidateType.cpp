@@ -1,3 +1,14 @@
+/*
+    KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
+    CMPR 121 - Fall 2024
+    October 15, 2024
+ 
+    Final Project
+ 
+    Collaboration:
+    Daniel Ruiz, Kun Fang, Sean Zhou
+*/
+
 #include "CandidateType.h"
 #include <iostream>
 
@@ -14,7 +25,7 @@ CandidateType::CandidateType()
 */
 void CandidateType::updateVotesByCampuses(int campusNum, int numOfVotes)
 {
-    campusVotes[campusNum - 1] = numOfVotes;
+    campusVotes[campusNum - 1] += numOfVotes;
     totalNumOfVotes += numOfVotes;
 }
 
