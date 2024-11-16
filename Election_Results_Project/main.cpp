@@ -271,6 +271,7 @@ int main()
         candidate31
     };
     
+    // Adds candidates into candidate linked list
     for (int i = 0; i < SIZE; i++)
     {
         list.addCandidate(candidates[i]);
@@ -281,13 +282,14 @@ int main()
     
     while (userInput != 27)
     {
-        cout << "Choose an option:\n" <<
-                     "1: Search for candidate\n" <<
-                     "2: See Total Votes for candidate\n" <<
-                     "3: See Total Votes for candidate by Division\n" <<
-                     "4: View all candidates\n"
-                     "5: View election results\n" <<
-                     "6: Press esc to exit\n";
+        cout << "Choose an option:\n"
+                "1: Search for a candidate\n"
+                "2: See total votes for a candidate\n"
+                "3: See campus votes for a candidate\n"
+                "4: View all candidates\n"
+                "5: View winner of election\n"
+                "6: View final election results\n"
+                "esc: Exit\n";
         
         cout << "\nEnter your choice: ";
         cin >> userInput;
@@ -298,11 +300,13 @@ int main()
             case '1':
                 cout << "\nPlease enter the candidates SSN: ";
                 cin >> ssn;
+                cout << endl;
                 list.searchCandidate(ssn);
                 break;
             case '2':
                 cout << "\nPlease enter the candidates SSN: ";
                 cin >> ssn;
+                cout << endl;
                 list.printCandidateTotalVotes(ssn);
                 break;
             case '3':
@@ -310,6 +314,7 @@ int main()
                 cin >> ssn;
                 cout << "Please enter the divison number: ";
                 cin >> division;
+                cout << endl;
                 list.printCandidateCampusVotes(ssn, division);
                 break;
             case '4':
@@ -317,6 +322,11 @@ int main()
                 list.printAllCandidates();
                 break;
             case '5':
+                cout << endl;
+                cout << list.getWinner();
+                cout << endl;
+                break;
+            case '6':
                 cout << endl;
                 list.printFinalResults(SIZE);
                 break;
@@ -328,8 +338,6 @@ int main()
         }
         cout << endl;
     }
-
-    
     
     return 0;
 }
