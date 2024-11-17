@@ -280,7 +280,7 @@ int main()
     // Main Driver Program begins here...
     char userInput = ' ';
     
-    while (userInput != 27)
+    while (userInput != 'x')
     {
         cout << "Choose an option:\n"
                 "1: Search for a candidate\n"
@@ -289,7 +289,7 @@ int main()
                 "4: View all candidates\n"
                 "5: View winner of election\n"
                 "6: View final election results\n"
-                "esc: Exit\n";
+                "x: Exit\n";
         
         cout << "\nEnter your choice: ";
         cin >> userInput;
@@ -330,7 +330,7 @@ int main()
                 cout << endl;
                 list.printFinalResults(SIZE);
                 break;
-            case 27:
+            case 'x':
                 cout << "\nGoodbye!\n";
                 break;
             default:

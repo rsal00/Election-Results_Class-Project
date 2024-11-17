@@ -12,6 +12,7 @@
 #include "CandidateList.h"
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 CandidateList::CandidateList() : first(nullptr), last(nullptr), count(0) {}
 
@@ -308,7 +309,7 @@ void CandidateList::printFinalResults(int SIZE)
         //int mostVotes = winner.getTotalVotes();
         
         // CandidateType array holding the candidates in order from first place to last place
-        CandidateType resultsInOrder[SIZE];
+        CandidateType* resultsInOrder = new CandidateType[SIZE];
         
         // Loop that puts each candidate inside the array out of order
         for (int i = 0; i < SIZE; i++)
@@ -346,6 +347,8 @@ void CandidateList::printFinalResults(int SIZE)
             std::cout << std::right << std::setw(10) << resultsInOrder[i].getTotalVotes();
             std::cout << std::endl;
         }
+        delete[] resultsInOrder;
+        resultsInOrder = nullptr;
     }
 }
 
