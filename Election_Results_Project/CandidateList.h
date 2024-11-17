@@ -21,29 +21,24 @@ public:
     
     CandidateList();
     
-    CandidateList(const CandidateList &list);
-    
-    CandidateList& operator=(const CandidateList& other);
-    
     void addCandidate(const CandidateType& candidate);
     
     int getWinner();
-    
     bool searchCandidate(int SSN);
     
     void printCandidateName(int SSN);
-    
     void printAllCandidates();
-    
     void printCandidateCampusVotes(int SSN, int division);
-    
     void printCandidateTotalVotes(int SSN);
-    
     void printFinalResults(int SIZE);
     
     void destroyList();
     
     ~CandidateList();
+    
+    CandidateList(const CandidateList &list);
+    
+    CandidateList& operator=(const CandidateList& other);
     
 private:
     Node* first;

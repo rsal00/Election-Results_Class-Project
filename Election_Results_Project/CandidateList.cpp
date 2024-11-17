@@ -86,8 +86,8 @@ int CandidateList::getWinner()
         current = current->getLink();
     }
     // Return the SSN of winner candidate
-    std::cout << "Winner found!\n";
     winner.printName();
+    std::cout << "Votes: " << winner.getTotalVotes() << std::endl;
     std::cout << "SSN: ";
     return winner.getSSN();
 }
@@ -115,7 +115,7 @@ bool CandidateList::searchCandidate(int SSN)
         // If current candidate's SSN is equal to the passed argument SSN, return true
         if (c.getSSN() == SSN)
         {
-            std::cout << "Candidate Found!\n" << "Candidate Name: ";
+            std::cout << "Candidate Found!\n";
             c.printName(); // return name to find who winner candidate is by name
             return true;
         }
@@ -125,7 +125,7 @@ bool CandidateList::searchCandidate(int SSN)
             current = current->getLink();
             
             // Checking if in the final node pointing to nullptr
-            if (current == nullptr)
+            if (!current)
             {
                 std::cout << "=> SSN is not in the list\n";
             }
@@ -280,7 +280,7 @@ void CandidateList::printCandidateTotalVotes(int SSN)
             current = current->getLink();
             
             // If next node is nullptr, SSN is not in the list
-            if (current == nullptr)
+            if (!current)
             {
                 std::cout << "=> SSN is not in the list\n";
             }
