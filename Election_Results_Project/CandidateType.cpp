@@ -1,7 +1,7 @@
 /*
     KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
     CMPR 121 - Fall 2024
-    October 15, 2024
+    October 29, 2024
  
     Final Project
  
@@ -55,7 +55,6 @@ void CandidateType::printCandidateTotalVotes()
 // Member function that prints a candidates full name and the total votes by a specific campus
 void CandidateType::printCandidateCampusVotes(int campusNum)
 {
-    PersonType::printName();
     std::cout << "  -> Campus " << campusNum << " total votes: " << campusVotes[campusNum - 1] << std::endl;
 }
 

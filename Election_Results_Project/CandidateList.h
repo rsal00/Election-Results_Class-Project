@@ -1,7 +1,7 @@
 /*
     KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
     CMPR 121 - Fall 2024
-    October 15, 2024
+    November 6, 2024
  
     Final Project
  
@@ -23,15 +23,15 @@ public:
     
     void addCandidate(const CandidateType& candidate);
     
-    int getWinner();
-    bool searchCandidate(int SSN);
+    int getWinner() const;
+    bool searchCandidate(int SSN) const;
     
     void printCandidateName(int SSN);
     void printAllCandidates();
     void printCandidateCampusVotes(int SSN, int division);
     void printCandidateTotalVotes(int SSN);
-    void printFinalResults(int SIZE);
-    
+    void printFinalResults();
+    void printr();
     void destroyList();
     
     ~CandidateList();

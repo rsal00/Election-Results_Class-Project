@@ -1,7 +1,7 @@
 /*
     KDR Coders - Daniel Ruiz, Kun Fang, Ruben Salazar, Sean Zhou
     CMPR 121 - Fall 2024
-    October 15, 2024
+    November 6, 2024
  
     Final Project
  
@@ -12,7 +12,6 @@
 #include "CandidateList.h"
 #include <iostream>
 #include <iomanip>
-#include <vector>
 
 CandidateList::CandidateList() : first(nullptr), last(nullptr), count(0) {}
 
@@ -45,7 +44,7 @@ void CandidateList::addCandidate(const CandidateType &candidate)
 }
 
 // Traverses the list and gets the candidate with the most votes
-int CandidateList::getWinner()
+int CandidateList::getWinner() const
 {
     // Creating a Node object and assigns it to the first node.
     Node* current = first;
@@ -87,14 +86,11 @@ int CandidateList::getWinner()
         current = current->getLink();
     }
     // Return the SSN of winner candidate
-    winner.printName();
-    std::cout << "Votes: " << winner.getTotalVotes() << std::endl;
-    std::cout << "SSN: ";
     return winner.getSSN();
 }
 
 // Searches through list comparing SSN and returning true if found
-bool CandidateList::searchCandidate(int SSN)
+bool CandidateList::searchCandidate(int SSN) const
 {
     // Creating a node to hold current position in list
     Node* current = first;
@@ -116,8 +112,7 @@ bool CandidateList::searchCandidate(int SSN)
         // If current candidate's SSN is equal to the passed argument SSN, return true
         if (c.getSSN() == SSN)
         {
-            std::cout << "Candidate Found!\n";
-            c.printName(); // return name to find who winner candidate is by name
+            // return name to find who winner candidate is by name
             return true;
         }
         // If not, go to next node and check if we are in the last node
@@ -129,6 +124,7 @@ bool CandidateList::searchCandidate(int SSN)
             if (!current)
             {
                 std::cout << "=> SSN is not in the list\n";
+                return false;
             }
         }
     }
@@ -229,8 +225,6 @@ void CandidateList::printCandidateCampusVotes(int SSN, int division)
         // If SSN's match, print candidate votes by a specific division/campus
         if (c.getSSN() == SSN)
         {
-//            std::cout << c.getFirstName() << " " << c.getLastName() << "'s Divsion ";
-//            std::cout << division << " Votes: " << c.getVotesByCampus(division) << std::endl;
             c.printCandidateCampusVotes(division);
             current = nullptr;
         }
@@ -270,8 +264,6 @@ void CandidateList::printCandidateTotalVotes(int SSN)
         // If SSN's match, print the candidates total votes accumulated
         if (c.getSSN() == SSN)
         {
-//            std::cout << c.getFirstName() << " " << c.getLastName() << "'s Total ";
-//            std::cout << "Votes: " << c.getTotalVotes() << std::endl;
             c.printCandidateTotalVotes();
             current = nullptr;
         }
@@ -290,10 +282,12 @@ void CandidateList::printCandidateTotalVotes(int SSN)
 }
 
 // Prints each candidates spot in the final result
-void CandidateList::printFinalResults(int SIZE)
+void CandidateList::printFinalResults()
 {
     // Creating a node to hold current position in list
     Node* current = first;
+    
+    const int SIZE = 31; // The amount of candidates in the list
     
     // Checks if list is empty
     if (!current)
@@ -305,8 +299,6 @@ void CandidateList::printFinalResults(int SIZE)
         // CandidateType objects of winner and temporary
         CandidateType winner, temp;
         winner = current->getCandidate();
-        
-        //int mostVotes = winner.getTotalVotes();
         
         // CandidateType array holding the candidates in order from first place to last place
         CandidateType* resultsInOrder = new CandidateType[SIZE];
@@ -321,7 +313,7 @@ void CandidateList::printFinalResults(int SIZE)
         // Loop that sorts the candidates by most votes
         for (int i = 0; i < SIZE; i++)
         {
-            for (int j = i; j < SIZE; j++)
+            for (int j = i + 1; j < SIZE; j++)
             {
                 if (resultsInOrder[i].getTotalVotes() < resultsInOrder[j+1].getTotalVotes())
                 {
@@ -334,7 +326,6 @@ void CandidateList::printFinalResults(int SIZE)
         // Formatting header line
         std::cout << std::right << std::setw(25) << "FINAL RESULTS\n";
         std::cout << "---------------------------------------\n";
-        
         std::cout << std::right << std::setw(4) << "No." << std::setw(12) << "First Name";
         std::cout << std::setw(12) << "Last Name" << std::right << std::setw(10) << "Votes\n";
         std::cout << "---------------------------------------\n";
@@ -351,6 +342,47 @@ void CandidateList::printFinalResults(int SIZE)
         resultsInOrder = nullptr;
     }
 }
+
+// sorts the list and prints it
+void CandidateList::printr()
+{
+    // CandidateType objects of winner and temporary
+    CandidateType temp;
+    
+    // Algorithm sorting the candidates by most votes
+    for (Node* current = first; current != nullptr; current = current->getLink())
+    {
+        for (Node* ahead = current->getLink(); ahead != nullptr; ahead = ahead->getLink())
+        {
+            if (current->getCandidate().getTotalVotes() < ahead->getCandidate().getTotalVotes())
+            {
+                temp = current->getCandidate();
+                current->setCandidate(ahead->getCandidate());
+                ahead->setCandidate(temp);
+            }
+        }
+    }
+    
+    // Formatting header line
+    std::cout << std::right << std::setw(25) << "FINAL RESULTS\n";
+    std::cout << "---------------------------------------\n";
+    std::cout << std::right << std::setw(4) << "No." << std::setw(12) << "First Name";
+    std::cout << std::setw(12) << "Last Name" << std::right << std::setw(10) << "Votes\n";
+    std::cout << "---------------------------------------\n";
+    
+    int i = 0;
+    // Loop that displays final results of each candidate
+    for (Node* current = first; current != nullptr; current = current->getLink())
+    {
+        CandidateType cand = current->getCandidate();
+        std::cout << std::right << std::setw(2) << (i + 1) << "." << std::setw(12) << cand.getFirstName();
+        std::cout << std::setw(12) << cand.getLastName();
+        std::cout << std::right << std::setw(10) << cand.getTotalVotes();
+        std::cout << std::endl;
+        i++;
+    }
+}
+
 
 // Destroying the list
 void CandidateList::destroyList()
