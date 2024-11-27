@@ -284,7 +284,7 @@ void CandidateList::printCandidateTotalVotes(int SSN)
 // Sorts the list based on who had the most votes and prints the list in order
 void CandidateList::printFinalResults()
 {
-    // CandidateType objects of winner and temporary
+    // CandidateType object holding temporary candidate
     CandidateType temp;
     
     // Algorithm sorting the candidates by most votes
