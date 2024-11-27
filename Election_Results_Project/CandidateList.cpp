@@ -287,7 +287,7 @@ void CandidateList::printFinalResults()
     // CandidateType object holding temporary candidate
     CandidateType temp;
     
-    // Algorithm sorting the candidates by most votes
+    // Algorithm sorting the candidates by who has the most votes
     for (Node* current = first; current != nullptr; current = current->getLink())
     {
         for (Node* ahead = current->getLink(); ahead != nullptr; ahead = ahead->getLink())
