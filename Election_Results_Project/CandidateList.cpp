@@ -281,70 +281,8 @@ void CandidateList::printCandidateTotalVotes(int SSN)
     }
 }
 
-// Prints each candidates spot in the final result
+// Sorts the list based on who had the most votes and prints the list in order
 void CandidateList::printFinalResults()
-{
-    // Creating a node to hold current position in list
-    Node* current = first;
-    
-    const int SIZE = 31; // The amount of candidates in the list
-    
-    // Checks if list is empty
-    if (!current)
-    {
-        std::cerr << "=> List is empty\n";
-    }
-    else
-    {
-        // CandidateType objects of winner and temporary
-        CandidateType winner, temp;
-        winner = current->getCandidate();
-        
-        // CandidateType array holding the candidates in order from first place to last place
-        CandidateType* resultsInOrder = new CandidateType[SIZE];
-        
-        // Loop that puts each candidate inside the array out of order
-        for (int i = 0; i < SIZE; i++)
-        {
-            resultsInOrder[i] = current->getCandidate();
-            current = current->getLink();
-        }
-        
-        // Loop that sorts the candidates by most votes
-        for (int i = 0; i < SIZE; i++)
-        {
-            for (int j = i + 1; j < SIZE; j++)
-            {
-                if (resultsInOrder[i].getTotalVotes() < resultsInOrder[j+1].getTotalVotes())
-                {
-                    temp = resultsInOrder[i];
-                    resultsInOrder[i] = resultsInOrder[j+1];
-                    resultsInOrder[j+1] = temp;
-                }
-            }
-        }
-        // Formatting header line
-        std::cout << std::right << std::setw(25) << "FINAL RESULTS\n";
-        std::cout << "---------------------------------------\n";
-        std::cout << std::right << std::setw(4) << "No." << std::setw(12) << "First Name";
-        std::cout << std::setw(12) << "Last Name" << std::right << std::setw(10) << "Votes\n";
-        std::cout << "---------------------------------------\n";
-        
-        // Loop that displays final results of each candidate
-        for (int i = 0; i < SIZE; i++)
-        {
-            std::cout << std::right << std::setw(2) << (i + 1) << "." << std::setw(12) << resultsInOrder[i].getFirstName();
-            std::cout << std::setw(12) << resultsInOrder[i].getLastName();
-            std::cout << std::right << std::setw(10) << resultsInOrder[i].getTotalVotes();
-            std::cout << std::endl;
-        }
-        delete[] resultsInOrder;
-        resultsInOrder = nullptr;
-    }
-}
-
-// sorts the list and prints it
-void CandidateList::printr()
 {
     // CandidateType objects of winner and temporary
     CandidateType temp;
@@ -382,7 +320,6 @@ void CandidateList::printr()
         i++;
     }
 }
-
 
 // Destroying the list
 void CandidateList::destroyList()

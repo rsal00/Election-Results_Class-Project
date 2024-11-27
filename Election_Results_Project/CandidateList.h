@@ -31,7 +31,7 @@ public:
     void printCandidateCampusVotes(int SSN, int division);
     void printCandidateTotalVotes(int SSN);
     void printFinalResults();
-    void printr();
+    
     void destroyList();
     
     ~CandidateList();

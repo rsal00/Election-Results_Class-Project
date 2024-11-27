@@ -109,9 +109,9 @@ void processChoice(CandidateList& candidateList)
 			cout << endl << endl;
 			break;
 
-		case 5: // prints totall votes and name of each candidate
+		case 5: // prints total votes and name of each candidate
             cout << endl;
-            candidateList.printr();
+            candidateList.printFinalResults();
             cout << endl;
             break;
 
